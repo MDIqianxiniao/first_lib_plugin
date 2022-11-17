@@ -1,0 +1,9 @@
+framework module "TPhoneSDKCore" {
+	header "ref.h"
+    header "Tphone_sdk_core.objc.h"
+    header "Tphone_sdk_core_callback.objc.h"
+    header "Universe.objc.h"
+    header "TPhoneSDKCore.h"
+
+    export *
+}

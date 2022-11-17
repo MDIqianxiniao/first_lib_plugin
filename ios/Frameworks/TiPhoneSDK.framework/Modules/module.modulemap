@@ -1,0 +1,6 @@
+framework module TiPhoneSDK {
+  umbrella header "TiPhoneSDK.h"
+
+  export *
+  module * { export * }
+}

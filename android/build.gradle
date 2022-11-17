@@ -1,0 +1,61 @@
+group 'com.tinet.flutter_tiphone_plugin'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+
+    ndkVersion '21.4.7075529'
+}
+
+repositories{
+//    flatDir{
+//        dirs  "src/libs"
+//    }
+    google()
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+
+}
+
+dependencies{
+    // 通过 libs 目录引入 TiPhone SDK
+    compileOnly fileTree(include: ['*.jar','*.aar'], dir: 'src/libs')
+
+    implementation("org.webrtc:google-webrtc:1.0.32006")
+    implementation("org.java-websocket:Java-WebSocket:1.5.3")
+
+    // 与 TiPhone 相关的依赖
+    implementation 'com.koushikdutta.async:androidasync:3.1.0'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
+}
